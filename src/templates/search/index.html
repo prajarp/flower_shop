@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <form method="get" action="">
+            <input type="search"
+                   name="search"
+                   placeholder="wpisz nazwe kompozycji"
+                   value="{{ query|default:'' }}">
+            <button type="submit">Szukaj</button>
+        </form>
+        {% if query %}<h2>Wyniki wyszukiwania dla: "{{ query }}"</h2>{% endif %}
+        {% if post_results %}
+            <ul>
+                {% for flower in post_results %}
+                    <li>
+                        {{ flower.name }}
+                        {{ flower.description }}
+                        {{ flower.price }}
+                    </li>
+                {% endfor body %}
+            </ul>
+            {% else %}
+                <p>Brak wyników dla "{{ query }}"</p>
+            {% endif %}
+    </body>
+</html>
