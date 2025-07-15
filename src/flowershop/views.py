@@ -130,7 +130,7 @@ def createFlowerArrangementView(request):
             for f in files:
                 FlowerArrangementImage.objects.create(arrangement=arrangement, image=f)
 
-            return redirect('show_arrangements')  # zamień na swoją nazwę widoku
+            return redirect('show_arrangements')
 
     else:
         form = FlowerArrangementForm()
@@ -145,7 +145,6 @@ def updateFlowerArrangementView(request, a_id):
         if form.is_valid():
             form.save()
 
-            # Obsługa przesłanego zdjęcia
             image_file = request.FILES.get('images')
             if image_file:
                 FlowerArrangementImage.objects.create(
@@ -153,7 +152,7 @@ def updateFlowerArrangementView(request, a_id):
                     image=image_file
                 )
 
-            return redirect('show_arrangements')  # lub inny widok
+            return redirect('show_arrangements')
     else:
         form = FlowerArrangementForm(instance=arrangement)
 

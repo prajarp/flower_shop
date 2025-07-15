@@ -23,8 +23,8 @@ from django.conf.urls.static import static
 from django.contrib.admin.views.decorators import staff_member_required
 
 urlpatterns = [
-    path('admin/', admin.site.urls),  # panel admina Django
-    path('flower/index', showFlowersView, name='show_flowers'),  # aplikacja flowershop
+    path('admin/', admin.site.urls),
+    path('flower/index', showFlowersView, name='show_flowers'),
     path('flower/show/<int:f_id>/', showFlowerView, name='show_flower'),
     path('flower/create/', createFlowerView, name='create_flower'),
     path('flower/update/<int:f_id>/', updateFlowerView, name='update_flower'),
@@ -46,7 +46,7 @@ urlpatterns = [
     path('', index),
 
     path('search/', searchFlowersView, name='search_flowers'),
-    
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

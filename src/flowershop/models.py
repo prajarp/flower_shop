@@ -20,7 +20,6 @@ class Flower(models.Model):
     quantity = models.PositiveIntegerField()
 
     def __str__(self):
-        # return self.name, self.colors, self.price, self.quantity or "Unnamed Flower"
         return f"{self.name} | {self.price} zł | qty: {self.quantity} | colors: {', '.join(color.name for color in self.colors.all())}" if self.name else "Unnamed Flowerur"
 
 class FlowerArrangement(models.Model):
